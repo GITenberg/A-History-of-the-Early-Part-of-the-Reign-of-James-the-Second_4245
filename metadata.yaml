@@ -1,0 +1,36 @@
+_repo: A-History-of-the-Early-Part-of-the-Reign-of-James-the-Second_4245
+_version: 0.0.1
+creator:
+  author:
+    agent_name: Fox, Charles James
+    alias: Fox, C. J. (Charles James)
+    birthdate: 1749
+    deathdate: 1806
+    gutenberg_agent_id: '1413'
+    url: http://www.gutenberg.org/2009/agents/1413
+    wikipedia: http://en.wikipedia.org/wiki/Charles_James_Fox
+  editor:
+    agent_name: Morley, Henry
+    birthdate: 1822
+    deathdate: 1894
+    gutenberg_agent_id: '1355'
+    url: http://www.gutenberg.org/2009/agents/1355
+    wikipedia: http://en.wikipedia.org/wiki/Henry_Morley
+description: The appendix contains "Correspondence between Louis XIV and M. Barillon
+  on English affairs, from Dec. 1584 [i.e. 1684] to Dec. 1585 [i.e. 1685]" and a few
+  other pieces.
+gutenberg_bookshelf: United Kingdom
+gutenberg_issued: '2003-07-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '4245'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Great Britain -- History -- James II, 1685-1688'
+- !lcc 'DA'
+- GITenberg
+title: A History of the Early Part of the Reign of James the Second
+url: http://www.gutenberg.org/ebooks/4245
