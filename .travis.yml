@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: uUy1hKT1evEvwBM9an9MmY/sLgEzIUIdcgF35BYOMGtdNt8is4EW7HezfBWS7ymOFSS+NfYcvLrK323NLFU9qvP705rlkTdwGGzXMGkJnErRJNssCB/b7LGZQjA9fzXmuXMk3bQwoZt+ZSlCveC7alM5dGprs7OZ6kVTzqfqsRgPB7k+belsCMMju8Xq3wG3/5qMjo2/KBuM8Hq37rjKa9yLZfOJg3/yjN2U4+OqzySqr3tlEsTK0XdxY4f8l1YxfAl9vP9kf+9vMszlCv7e29tWzwxLdbgNJSwWDmE8DBr6INw2X7UW/0yZEu1tqHIxotiQzclHiSxPuiY6+Kg8m1RcM/9e6vblNEZJoYozizux1TQwjUUTL+Ahp0b/Spe+H7xe07tWJ1xo/CWY08CiA8pNfXeq+B8+plUrM2HsS7/dDsmEg9JqbpbaIboYms4EdPqnNDPd+LoZ3CI8y2covGbe7oye7emTkxXbsgZy2/VADPEwoboq9G4Cboi39E/FUbdltgKqwQqNg5Q4IVhl0A1AD1lmBevGqCqlwPLEby/+SFXyDH1UrCkyK3LuB4Oy94YDLzcTQiVO5tWs8PfpGW9+13OgEIuVHFqA+38P1hRZ+fMO35zKHRuXbaFFfv78T81R2iihiXkQMeI4/hQhre3mTRx1McrQ9KK6qrKFsRc=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/A-History-of-the-Early-Part-of-the-Reign-of-James-the-Second_4245
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
