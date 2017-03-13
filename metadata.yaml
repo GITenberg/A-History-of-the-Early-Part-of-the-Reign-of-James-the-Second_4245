@@ -1,5 +1,8 @@
 _repo: A-History-of-the-Early-Part-of-the-Reign-of-James-the-Second_4245
-_version: 0.1.0
+_version: 0.2.0
+covers:
+- cover_type: generated
+  image_path: cover.png
 creator:
   author:
     agent_name: Fox, Charles James
@@ -19,6 +22,8 @@ creator:
 description: The appendix contains "Correspondence between Louis XIV and M. Barillon
   on English affairs, from Dec. 1584 [i.e. 1684] to Dec. 1585 [i.e. 1685]" and a few
   other pieces.
+edition_identifiers:
+  edition_id: http://www.gutenberg.org/ebooks/4245#A-History-of-the-Early-Part-of-the-Reign-of-James-the-Second
 gutenberg_bookshelf: United Kingdom
 gutenberg_issued: '2003-07-01'
 gutenberg_type: Text
